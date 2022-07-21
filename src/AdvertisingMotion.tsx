@@ -19,6 +19,7 @@ import { Text8 } from './AdvertisingMotion/Text8';
 import { Text9 } from './AdvertisingMotion/Text9';
 import backgroundMuisc from './input_data/sounds/1.wav';
 import video1 from './input_data/videos/1.mp4';
+import image from '../input_data/images/logo_zebra.png'
 let data = require('./input_data/config.json');
 
 
@@ -79,7 +80,7 @@ export const AdvertisingMotion: React.FC = () => {
 				<Text10 titleText={endText.slice(2).join(" ")} fontFamily={mainFontFamily} fontSize={fontSize.medium} color={colors[2]} />
 			</Sequence>
 			<Sequence key={'logo'} from={370} durationInFrames={30 * 16} >
-				<Logo titleText={data.brand_name} fontFamily={secondaryFontFamily} />
+				<Logo titleText={data.brand_name} fontFamily={secondaryFontFamily} logoSrc={image} />
 			</Sequence>
 		</AbsoluteFill>
 	);

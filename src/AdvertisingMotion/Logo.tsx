@@ -1,6 +1,6 @@
 import React from 'react';
 import { spring, useCurrentFrame, useVideoConfig } from 'remotion';
-import image from '../input_data/images/logo_zebra.png'
+
 
 const LogoStyle: React.CSSProperties = {
   textAlign: 'center',
@@ -11,7 +11,8 @@ const LogoStyle: React.CSSProperties = {
 export const Logo: React.FC<{
   titleText: string,
   fontFamily: string,
-}> = ({ titleText, fontFamily }) => {
+  logoSrc: string,
+}> = ({ titleText, fontFamily, logoSrc }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -32,7 +33,7 @@ export const Logo: React.FC<{
       alignItems: 'center',
       textAlign: 'center',
     }}>
-      <img src={image} style={{
+      <img src={logoSrc} style={{
         ...LogoStyle,
         opacity: value
       }} />
