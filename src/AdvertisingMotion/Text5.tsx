@@ -1,7 +1,6 @@
 import React from 'react';
 import { spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
-
 const root: React.CSSProperties = {
   width: '100%',
   height: '100%',
@@ -10,11 +9,7 @@ const root: React.CSSProperties = {
   justifyContent: 'center',
 };
 
-const text: React.CSSProperties = {
-  textAlign: 'center',
-};
-
-export const Text3: React.FC<{
+export const Text5: React.FC<{
   titleText: string,
   fontFamily: string,
   fontSize: number,
@@ -31,18 +26,14 @@ export const Text3: React.FC<{
     },
   });
 
-  const scale = value <= 0.95 ? 1 : 2
-
   return (
-    <div style={{ ...root }}>
-      <h1 style={{
-        ...text,
-        fontFamily: fontFamily,
-        fontSize: fontSize * scale,
-        color: color,
-      }}>
-        {titleText}
-      </h1>
-    </div>
+    <h1 style={{
+      ...root,
+      fontFamily: fontFamily,
+      fontSize: fontSize,
+      color: color,
+    }}>
+      {titleText}
+    </h1>
   );
 };

@@ -19,6 +19,8 @@ export const BackgroundVideo: React.FC<{ src: string }> = ({ src }) => {
   });
 
   return (
-    <Video src={src} style={root} />
+    <div style={{ backgroundColor: 'black', width: '100%', height: '100%', opacity: 1/value }}>
+      <Video src={src} style={root} />
+    </div>
   );
 };

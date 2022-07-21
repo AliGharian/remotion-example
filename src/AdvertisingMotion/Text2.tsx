@@ -2,8 +2,15 @@ import React from 'react';
 import { spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 const root: React.CSSProperties = {
-  textAlign: 'center',
   width: '100%',
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+const text: React.CSSProperties = {
+  textAlign: 'center',
 };
 
 export const Text2: React.FC<{
@@ -12,25 +19,19 @@ export const Text2: React.FC<{
   fontSize: number,
   color: string,
 }> = ({ titleText, fontFamily, fontSize, color }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-
-  const value = spring({
-    frame: frame,
-    fps: fps,
-    from: 0,
-    config: {
-    },
-  });
 
   return (
-    <h1 style={{
+    <div style={{
       ...root,
-      fontFamily: fontFamily,
-      fontSize: fontSize,
-      color: color
     }}>
-      {titleText}
-    </h1>
+      <h1 style={{
+        ...text,
+        fontFamily: fontFamily,
+        fontSize: fontSize,
+        color: color
+      }}>
+        {titleText}
+      </h1>
+    </div>
   );
 };

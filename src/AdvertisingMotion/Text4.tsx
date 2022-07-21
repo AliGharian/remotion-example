@@ -8,18 +8,21 @@ const root: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  backgroundSize: 'cover',
+  background: 'url(https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547__340.jpg)',
 };
 
-const text: React.CSSProperties = {
+const titleStyle: React.CSSProperties = {
   textAlign: 'center',
 };
 
-export const Text3: React.FC<{
+export const Text4: React.FC<{
   titleText: string,
   fontFamily: string,
   fontSize: number,
   color: string,
-}> = ({ titleText, fontFamily, fontSize, color }) => {
+  backgroundColor: string,
+}> = ({ titleText, fontFamily, fontSize, color, backgroundColor }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -31,18 +34,19 @@ export const Text3: React.FC<{
     },
   });
 
-  const scale = value <= 0.95 ? 1 : 2
-
   return (
-    <div style={{ ...root }}>
+    <section style={{ ...root }}>
       <h1 style={{
-        ...text,
+        ...titleStyle,
         fontFamily: fontFamily,
-        fontSize: fontSize * scale,
+        fontSize: fontSize,
+        padding: '100%',
         color: color,
+        mixBlendMode: value >= 0.8 ? 'multiply' : 'unset',
+        backgroundColor: value >= 0.8 ? backgroundColor : 'none',
       }}>
         {titleText}
       </h1>
-    </div>
+    </section >
   );
 };

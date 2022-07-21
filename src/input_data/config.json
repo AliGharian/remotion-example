@@ -38,12 +38,20 @@
       "#142E54",
       "#495B53",
       "#EDEEF1",
-      "#F4DB78"
+      "#F4DB78",
+      "#000000"
    ],
    "main_font": [
       "Bodoni"
    ],
    "secondary_font": [
       "Avenir"
-   ]
+   ],
+   "font_size": {
+      "small": 100,
+      "medium": 200,
+      "large": 300,
+      "x_large": 400
+   },
+   "brand_name":"Zebracat.ai"
 }

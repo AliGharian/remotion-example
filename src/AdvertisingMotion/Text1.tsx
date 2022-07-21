@@ -2,10 +2,15 @@ import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 const root: React.CSSProperties = {
-  textAlign: 'center',
   width: '100%',
-  position: 'absolute',
-  top: '100px'
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+const text: React.CSSProperties = {
+  textAlign: 'center',
 };
 
 export const Text1: React.FC<{
@@ -26,19 +31,17 @@ export const Text1: React.FC<{
     },
   });
 
-  const offset = interpolate(frame, [0, 20], [0, 1], {
-    extrapolateRight: "clamp",
-  });
-
   return (
-    <h1 style={{
-      ...root,
-      fontFamily: fontFamily,
-      fontSize: fontSize,
-      color: color,
-      transform: `scale(${1.5 / (value + 0.01)})`
-    }}>
-      {titleText}
-    </h1>
+    <div style={{ ...root }}>
+      <h1 style={{
+        ...text,
+        fontFamily: fontFamily,
+        fontSize: fontSize,
+        color: color,
+        transform: `scale(${1.5 / (value + 0.01)})`
+      }}>
+        {titleText}
+      </h1>
+    </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
-import { spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { spring, useCurrentFrame, useVideoConfig, Video } from 'remotion';
+import video from '../input_data/videos/2.mp4'
 
 
 const root: React.CSSProperties = {
@@ -10,11 +11,7 @@ const root: React.CSSProperties = {
   justifyContent: 'center',
 };
 
-const text: React.CSSProperties = {
-  textAlign: 'center',
-};
-
-export const Text3: React.FC<{
+export const Text7: React.FC<{
   titleText: string,
   fontFamily: string,
   fontSize: number,
@@ -28,21 +25,23 @@ export const Text3: React.FC<{
     fps: fps,
     from: 0,
     config: {
+      mass: 20,
     },
   });
 
-  const scale = value <= 0.95 ? 1 : 2
-
   return (
-    <div style={{ ...root }}>
+    <>
+      <Video src={video} />
       <h1 style={{
-        ...text,
+        ...root,
         fontFamily: fontFamily,
-        fontSize: fontSize * scale,
+        fontSize: fontSize,
         color: color,
+        position: 'absolute',
+        opacity: value,
       }}>
         {titleText}
       </h1>
-    </div>
+    </>
   );
 };
